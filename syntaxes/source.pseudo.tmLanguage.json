@@ -1,0 +1,75 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Edexcel-Grade Pseudocode",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#arithmeticOperators"
+		},
+		{
+			"include": "#constantNumeric"
+		},
+		{
+			"include": "#commentInline"
+		},
+		{
+			"include": "#booleanOperators"
+		},
+		{
+			"include": "#booleanConstants"
+		}
+	],
+	"repository": {
+		"booleanConstants": {
+			"patterns": [{
+				"name": "constant.other",
+				"match": "\\b(TRUE|true|FALSE|false)\\b"
+			}]
+		},
+ 		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.source.pseudo",
+				"match": "\\b(const|CONST|set|SET|to|TO|if|IF|then|THEN|else|ELSE|break|BREAK|while|WHILE|do|DO|repeat|REPEAT|until|UNTIL|times|TIMES|for|FOR|from|FROM|end|END|endif|ENDIF|foreach|FOREACH|procedure|PROCEDURE|begin|BEGIN|function|FUNCTION|ENDFUNCTION|endfunction|return|RETURN|NEXT|next)\\b"
+			}]
+		},
+		"arithmeticOperators": {
+			"patterns": [{
+				"name": "keyword.operator.source.pseudo",
+				"match": "\\+|\\-|\\*|\\/|(DIV)|(MOD)|(div)|(mod)"
+			}]
+		},
+		"booleanOperators": {
+			"patterns": [{
+				"name": "constant.regexp",
+				"match": "\\b(AND|OR|NOT|and|or|not)\\b"
+			}]
+		},
+		"constantNumeric": {
+			"patterns": [{
+				"name": "constant.numeric.source.pseudo",
+				"match": "\\d+(\\.\\d+)?"
+			}]
+		},
+		"commentInline": {
+			"name": "comment.line.number-sign",
+			"match": "\\#.*"
+		},
+		"strings": {
+			"name": "string.quoted.double.source.pseudo",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.source.pseudo",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.pseudo"
+}

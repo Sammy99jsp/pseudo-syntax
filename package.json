@@ -1,0 +1,59 @@
+{
+    "name": "vscode-pseudo",
+    "displayName": "vscode-pseudo",
+    "description": "Pseudocode, Edexcel-style",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.59.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:edexcel.pseudo",
+        "onCommand:pseudo.test"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "pseudo.test",
+                "title": "Psuedocode Test Command!"
+            }
+        ],
+        "languages": [
+            {
+                "id": "edexcel.pseudo",
+                "aliases": [
+                    "Edexcel-Grade Pseudocode",
+                    "edexcel.pseudo"
+                ],
+                "extensions": [
+                    ".pseudo"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "edexcel.pseudo",
+                "scopeName": "source.pseudo",
+                "path": "./syntaxes/source.pseudo.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "@types/node": "^16.4.13",
+        "@types/vscode": "^1.59.0",
+        "@typescript-eslint/eslint-plugin": "^4.29.0",
+        "@typescript-eslint/parser": "^4.29.0",
+        "eslint": "^7.32.0",
+        "typescript": "^4.3.5"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint . --ext .ts,.tsx",
+        "watch": "tsc -watch -p ./"
+    }
+}
